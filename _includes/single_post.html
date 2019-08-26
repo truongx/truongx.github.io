@@ -1,0 +1,9 @@
+<time class="post-date" datetime="{{ post.date }}" title="Data publikacji">
+    {{ post.date | date: "%d.%m.%Y" }}
+  </time>
+{% if forloop.first and forloop.length == 1 %}<span id="latest-post-tag">Latest post</span>{% endif %}
+<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+<p>{{ post.content | strip_html | truncatewords:75 }}</p>
+<div class="post-meta">
+    <a class="disqus-comment-count" href="{{ post.url | prepend: site.baseurl }}#disqus_thread"></a>
+</div>

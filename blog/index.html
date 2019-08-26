@@ -1,0 +1,22 @@
+---
+layout: default
+title: truongxblog
+---
+{% assign number_of_posts = site.posts | size %}
+{% assign posts_offset = 5 %}
+<section class="section-posts">
+    <div class="content">
+        {% include posts.html offset="0" limit=posts_offset%}
+        {% if number_of_posts > posts_offset %}
+            <h2>Starsze wpisy</h2>
+            {% include posts.html offset=posts_offset short="true" %}
+        {% endif %}
+        <!--<ul class="posts">
+            {% for post in site.posts %}
+            <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{
+                    post.title }}</a>
+                    {{ post.content | strip_html | truncatewords:75 }}</li>
+            {% endfor %}
+        </ul>-->
+    </div>
+</section>

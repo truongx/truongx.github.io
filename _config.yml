@@ -1,3 +1,26 @@
-theme: jekyll-theme-slate
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+title: truongx.com
+name: truongx.com
+baseurl: ""
+url: "https://truongx.com"
+email: yo@truongx.com
+twitter_username: trukrzysztof
+github_username:  truongx
+instagram_username: truongx
+linkedin_username: krzysztoftruong
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+sass:
+  sass_dir: css/partials
+  style: compressed
+
+permalink: /:year/:month/:title.html
+
 repository: truongx/truongx.github.io
-show_downloads: true

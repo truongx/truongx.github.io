@@ -1,0 +1,55 @@
+---
+layout: default
+---
+
+<section class="post">
+  {% if page.image %}
+  <img class="post-image" src="{{ page.image | prepend: site.baseurl }}" alt="{{ page.title }}" title="{{ page.title }}">
+  {% endif %}
+  <div class="content">
+    <h1>{{ page.title }}</h1>
+    <p class="meta">
+      {% include time.html %}
+      <i class="fas fa-calendar-alt"></i>
+      <time class="post-date" datetime="{{ page.date }}" title="Data publikacji">
+        {{ page.date | date: "%d.%m.%Y" }}
+      </time>
+    </p>
+    <div class="post">
+      {{ content }}
+    </div>
+  </div>
+</section>
+{% if page.comments %}
+<section class="comments">
+  <div class="content">
+
+    <div id="disqus_thread"></div>
+    <script>
+      (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://truongx-com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
+  </div>
+</section>
+{% endif %}
+<script>
+  var handleProgress = function () {
+    let postOffset = $("footer").height();
+    let postHeight = $(".post").height() - postOffset;
+    let sc = $(window).scrollTop();
+    let prgrs = sc > postHeight ? 100 : 100 * sc / postHeight;
+    $('.progressbar').width(prgrs + '%');
+  }
+
+  $(document).ready(function () {
+    $(window).resize(handleProgress);
+    $(window).scroll(handleProgress);
+    handleProgress();
+  })
+</script>

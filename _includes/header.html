@@ -1,0 +1,37 @@
+<header class="site-header{% if page.url != '/' %} dark{% endif %}">
+    <div class="content">
+        <h1>
+            <a href="/"><span>truongx</span></a>
+        </h1>
+        <nav>
+            <!--
+            <ul class="site-links navlist">
+                <li><a class="page-link" href="/blog">Blog</a></li>
+                <li><a class="page-link" href="/about">O Mnie</a></li>
+            </ul>
+            -->
+            <ul class="social-icons navlist">
+                <!--<li><a href="mailto:{{ site.email }}" title="Email"><img src="/img/logos/gmail.svg" alt="Email"></a></li>-->
+                <li><a href="https://instagram.com/{{ site.instagram_username }}" title="Instagram"><img src="/img/logos/instagram.svg"
+                            alt="Instagram"></a></li>
+                <li><a href="https://linkedin.com/in/{{ site.linkedin_username }}" title="LinkedIn"><img src="/img/logos/linkedin.svg"
+                            alt="LinkedIn"></a></li>
+                <li><a href="https://twitter.com/{{ site.twitter_username }}" title="Twitter"><img src="/img/logos/twitter.svg"
+                            alt="Twitter"></a></li>
+                <li><a href="https://github.com/{{ site.github_username }}" title="GitHub"><img src="/img/logos/github.svg"
+                            alt="GitHub"></a></li>
+            </ul>
+            <div class="menuButton">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </div>
+    {% if page.layout == 'post' %}
+    <div class="progressbar-wrapper">
+        <div class="progressbar"></div>
+    </div>
+    {% endif %}
+</header>

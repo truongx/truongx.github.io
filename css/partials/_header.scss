@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css?family=Nova+Square');
+
+.site-header {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    top: 0px;
+    color: #fff;
+    overflow: hidden;
+    transition: background-color 250ms linear;
+
+    &.dark {
+        background-image: linear-gradient(to bottom,#1f1f47, #17182f);
+        box-shadow: 0 8px 16px $shadow-color;
+    }
+
+    h1 {
+        margin: 0;
+        flex: 1;
+
+        a {
+            font-family: 'Nova Square', sans-serif;
+            text-decoration: none;
+            color: #fff;
+            margin-right: 10px;
+        }
+    }
+
+    .content {
+        display: flex;
+        height: 50px;
+        transition: height 250ms ease-out;
+    }
+
+    nav {
+        flex: 6;
+        line-height: 52px;
+    }
+}
+
+.navlist {
+    list-style: none;
+    display: inline-block;
+
+    li {
+        display: inline;
+
+        a.page-link {
+            box-sizing: border-box;
+            transition: all 75ms linear;
+            padding: 0.5em;
+            text-decoration: none;
+            color: #eee;
+            border-style: solid;
+            border-color: transparent;
+
+            &:hover {
+                //background-color: #eee;
+                //color: #222;
+                border-radius: 0.8em;
+                border-color: #eee;
+            }
+        }
+        
+    }
+}
+
+/* social */
+
+.social-icons {
+    float: right;
+
+    a {
+        display: inline-block;
+        width: 18px;
+        opacity: 0.8;
+        padding: 5px;
+        line-height: 1;
+        
+        &:hover{
+            opacity:0.5;
+        }
+        img {
+            vertical-align: middle;
+        }
+    }
+}
+
+/* progress bar */
+
+.progressbar-wrapper {
+    width: 100%;
+    height:3px;
+    background-color: 	#716e91;
+}
+
+.progressbar {
+    transition: width 300ms ease;
+    width: 0%;
+    height: 100%;
+    background-color: #8080ff;
+}
+
+/* Animated menu button */
+
+.menuButton {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    z-index: 100;
+    text-indent: -9999px;
+    width: 35px;
+    height: 35px;
+    margin: 2px;
+    /*margin: 15px 20px 5px 5px;*/
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+
+    span {
+        display: block;
+        position: absolute;
+        height: 5px;
+        width: 100%;
+        border-radius: 3px;
+        background: #fff;
+        opacity: 1;
+        left: 0;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transition: .25s ease-in-out;
+        -moz-transition: .25s ease-in-out;
+        -o-transition: .25s ease-in-out;
+        transition: .25s ease-in-out;
+    }
+
+    span:nth-child(1) {
+        top: 0px;
+    }
+
+    span:nth-child(2), span:nth-child(3) {
+        top: 12px;
+    }
+
+    span:nth-child(4) {
+        top: 24px;
+    }
+
+    &.expanded span:nth-child(1) {
+        top: 12px;
+        width: 0%;
+        left: 50%;
+    }
+
+    &.expanded span:nth-child(2) {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    &.expanded span:nth-child(3) {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+    &.expanded span:nth-child(4) {
+        top: 12px;
+        width: 0%;
+        left: 50%;
+    }
+}
+
+@media screen and (max-width: $break-small) {
+    .menuButton {
+        display: block;
+    }
+
+    .site-header {
+    
+        &.expanded {
+            background-color: rgba(0, 0, 0, 0.3);
+
+            .content {
+                height: 205px;
+            }
+        }
+
+        h1 {
+            margin: 0;
+        }
+    
+        .content {
+            display: block;
+        }
+
+        .navlist {
+            display: block;
+        }
+
+        .site-links li {
+            display: block;
+            text-align: center;
+        }
+
+        .social-icons {
+            float: none;
+            text-align: center;
+        }
+    }
+}

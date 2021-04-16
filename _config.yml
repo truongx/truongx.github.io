@@ -7,7 +7,7 @@ name: truongx.com
 baseurl: ""
 url: "https://truongx.com"
 email: yo@truongx.com
-twitter_username: trukrzysztof
+twitter_username: 0xtruong
 github_username:  truongx
 instagram_username: truongx
 linkedin_username: krzysztoftruong
@@ -16,11 +16,14 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+  syntax_highlighter_opts:
+      block:
+          line_numbers: true
 
 sass:
   sass_dir: css/partials
   style: compressed
 
-permalink: /:year/:month/:title.html
+permalink: /blog/:title/
 
 repository: truongx/truongx.github.io

@@ -3,10 +3,12 @@
 
 //@import url('https://cdn.rawgit.com/lonekorean/gist-syntax-themes/848d6580/stylesheets/monokai.css');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Jost');
 @import 'variables';
 @import 'syntax-highlight';
 @import 'header';
 @import 'footer';
+@import 'subscribe';
 
 html,
 body,
@@ -25,23 +27,20 @@ html {
 }
 
 body {
-    background: #EEE;
-    font-family: 'Open Sans', Arial, sans-serif;
-    font-size: 1.6em;
+    background-color:#0d0e20;
+    background-image: url("/img/stardust.png");
+    background-attachment: fixed;
+    font-family: $font-family;
+    font-size: 1.8em;
     line-height: 1.5;
-    color: #333;
+    color: $main-text-color;
 }
 
 .content {
-    max-width: 940px;
+    max-width: 1600px;
     padding: 0 20px;
     margin: 0 auto;
     box-sizing: border-box;
-}
-
-html,
-body {
-    height: 100%;
 }
 
 h2 {
@@ -55,21 +54,6 @@ h2 {
     margin: 24px 0;
 }
 
-.color-header-content {
-    max-width: 900px;
-    margin: 161px auto 0;
-    background: #35769e;
-    padding: 32px;
-    color: #fff;
-    z-index: 20;
-
-    h2 {
-        font-weight: 100;
-        font-size: 32px;
-        margin: 0 0 1em;
-    }
-}
-
 /* main page */
 .main {
     background-image: url("/img/rinjani.jpg");
@@ -77,33 +61,114 @@ h2 {
     background-repeat: no-repeat;
     background-position: right center;
     min-height: 100vh;
-    /*filter: grayscale(75%);*/
 }
 
 /* blog */
 .section-posts, .post {
-    min-height: 90vh;
-    margin-top: 80px;
+    min-height: 100vh;
+    margin-top: 50px;
 }
 
 .posts {
     list-style: none;
+    padding: 20px 0;
+    
+    a {
+        text-decoration: none;
+        color: $main-text-color;
+    }
+
+    &.posts-short {
+        h2 {
+            display: inline-block;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &.posts-long {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        li {
+            height: 300px;
+            width:100%;
+            margin: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            position: relative;
+            transition: box-shadow 0.2s ease-in-out;
+            box-shadow: 0 0 12px 1px $shadow-color;
+            overflow: hidden;
+
+            &.latest {
+                min-height: 50vh;
+
+                p {
+                    margin-top: 30px;
+                }
+            }
+
+            &:hover {
+                z-index: 100;
+                box-shadow:
+                    0 0 18px 3px rgb(48, 7, 42),
+                    0 0 35px 22px rgba(16,4,51,1);
+                cursor: pointer;
+            }
+        }
+
+        .post-hero {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+        }
+
+        .post-preview {
+
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            -webkit-mask-image: linear-gradient(to top, transparent 5%, black 50%);
+            mask-image: linear-gradient(to top, transparent 5%, black 50%);
+
+            .post-preview-content
+            {
+                padding: 10px;
+                box-sizing: border-box;
+
+                p {
+                    font-size: 1.2em;
+                    text-align: left;
+                }
+
+                @media screen and (max-width: $break-small) {
+                    h1{
+                        font-size: 1.3em;
+                    }
+    
+                    p {
+                        font-size: 0.8em;
+                    }
+                }
+            }
+        }
+    }
 }
 
 /* post */
 
 .post {
-    h1 {
-        font-size: 2.5em;
-    }
-
-    .meta {
-        text-align: right;
-    }
-
     img {
         margin: auto;
         display: block;
+        max-width: 100%;
     }
 
     .reading-time {
@@ -113,11 +178,193 @@ h2 {
 
 .post-image{
     width: 100%;
+    min-height: 100vh;
     max-height: 50vh;
     object-fit: cover;
+    
+}
+
+.post-header {
+    width: 100%;
+    height: 50vh;
+    min-height:300px;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+}
+
+.post-header-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.4);
+
+    h1 {
+        margin: 0px;
+        font-size: 2.4em;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
+    @media screen and (max-width: $break-small) {
+        h1{
+            font-size: 1.7em;
+        }
+    }
+}
+
+.post-header-image {
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0.5;
+}
+
+.post-header-meta {
+    background: linear-gradient(120deg, rgba(16,4,51,1) 0%, rgba(11,3,33,1) 10%, rgba(5,1,14,1) 50%, rgba(17,4,24,1) 90%, rgba(25,7,34,1) 100%);
+    box-shadow: 0 12px 16px $shadow-color;
+
+    .meta {
+        text-align: right;
+        max-width: $break-large;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 0 25px;
+    }
+}
+
+.post-content {
+    max-width: $break-large;
+    padding: 0 25px;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    a {
+        color: rgb(54, 116, 209);
+
+        &:hover {
+            color: rgb(90, 139, 212);
+        }
+
+        &:active {
+            color: rgb(123, 80, 204);
+        }
+    }
+}
+
+.post-navigation {
+    margin: 40px 0px;
+
+    .post-content {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    a {
+        display: inline-block;
+        flex: 1;
+        height: 300px;
+        @media screen and (max-width: $break-small) {
+            flex-basis: 100%;
+            height: 200px;
+        }
+    }
+}
+
+.related-post {
+    width: 100%;
+    height: 100%;
+    display:inline-block;
+    position: relative;
+}
+
+.related-post-image {
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.related-post-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 1s ease 0s;
+
+    span {
+        position: relative;
+        transition: top 1s ease 0s;
+        top: 5%;
+    }
+
+    &.prev {
+        color: $main-text-color;
+        background: linear-gradient(90deg, rgba(16,4,51,0.95) 0%, rgba(11,3,33,0.95) 70%, rgba(5,1,14,0.95) 100%);
+    
+        @media screen and (max-width: $break-small) {
+            background: linear-gradient(180deg, rgba(16,4,51,0.95) 0%, rgba(11,3,33,0.95) 60%, rgba(5,1,14,0.95) 100%);
+        }
+    }
+    &.next {
+        color: $main-text-color;
+        background: linear-gradient(90deg, rgba(5,1,14,0.95) 0%, rgba(17,4,24,0.95) 30%, rgba(25,7,34,0.95) 100%);
+        @media screen and (max-width: $break-small) {
+            background: linear-gradient(180deg, rgba(5,1,14,0.95) 0%, rgba(17,4,24,0.95) 40%, rgba(25,7,34,0.95) 100%);
+        }
+    }
+
+    h1 {
+        margin: 0px;
+        padding: 0px 5px;
+        box-sizing: border-box;
+        font-size: 1.7em;
+        top: 50%;
+        width: 100%;
+        -ms-transform: translate(0%, -50%);
+        transform: translate(0%, -50%);
+        position: absolute;
+    }
+    @media screen and (max-width: $break-small) {
+        h1{
+            font-size: 1.2em;
+        }
+    }
+
+    &:hover {
+        opacity: 0.8;
+        span {
+            top: 25%;
+        }
+        h1 {
+            text-decoration: underline;
+        }
+    }
 }
 
 .comments {
     padding: 1.5em;
-    background-color: #F8F8F8;
+    background-color: $comments-background;
+}
+
+.diagram {
+    svg {
+        margin: auto;
+        display: block;
+        background-color: white;
+        padding: 10px;
+    }
+
+    figcaption {
+        text-align: center;
+    }
 }

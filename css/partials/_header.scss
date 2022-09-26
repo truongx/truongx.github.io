@@ -1,27 +1,29 @@
 @import url('https://fonts.googleapis.com/css?family=Nova+Square');
+@import 'variables';
 
 .site-header {
     position: fixed;
     z-index: 1000;
     width: 100%;
     top: 0px;
-    color: #fff;
     overflow: hidden;
     transition: background-color 250ms linear;
 
     &.dark {
-        background-image: linear-gradient(to bottom,#1f1f47, #17182f);
+        background: linear-gradient(290deg, rgba(16,4,51,1) 0%, rgba(11,3,33,1) 10%, rgba(5,1,14,1) 50%, rgba(17,4,24,1) 90%, rgba(25,7,34,1) 100%);
         box-shadow: 0 8px 16px $shadow-color;
     }
 
     h1 {
         margin: 0;
         flex: 1;
+        font-size: 1.8em;
+        // text-align: center;
 
         a {
             font-family: 'Nova Square', sans-serif;
             text-decoration: none;
-            color: #fff;
+            color: $main-text-color;
             margin-right: 10px;
         }
     }
@@ -33,7 +35,8 @@
     }
 
     nav {
-        flex: 6;
+        flex: 8;
+        text-transform: lowercase;
         line-height: 52px;
     }
 }
@@ -50,15 +53,12 @@
             transition: all 75ms linear;
             padding: 0.5em;
             text-decoration: none;
-            color: #eee;
+            color: $main-text-color;
             border-style: solid;
             border-color: transparent;
 
             &:hover {
-                //background-color: #eee;
-                //color: #222;
-                border-radius: 0.8em;
-                border-color: #eee;
+                border-bottom-color: $main-text-color;
             }
         }
         
@@ -98,7 +98,7 @@
     transition: width 300ms ease;
     width: 0%;
     height: 100%;
-    background-color: #8080ff;
+    background: linear-gradient(90deg, rgba(74,72,190,1) 77%, rgba(80,204,255,1) 100%);
 }
 
 /* Animated menu button */
@@ -114,7 +114,6 @@
     width: 35px;
     height: 35px;
     margin: 2px;
-    /*margin: 15px 20px 5px 5px;*/
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
@@ -130,7 +129,7 @@
         height: 5px;
         width: 100%;
         border-radius: 3px;
-        background: #fff;
+        background: $main-text-color;
         opacity: 1;
         left: 0;
         -webkit-transform: rotate(0deg);
@@ -193,7 +192,8 @@
             background-color: rgba(0, 0, 0, 0.3);
 
             .content {
-                height: 205px;
+                // height: 270px;
+                height: 180px;
             }
         }
 

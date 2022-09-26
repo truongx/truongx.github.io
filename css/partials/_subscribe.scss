@@ -1,0 +1,41 @@
+#mc_embed_signup {
+    margin: 0 auto;
+    max-width: 500px;
+    
+    .asterisk {
+        color: rgb(148, 5, 5);
+    }
+
+    input {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        font-family: $font-family;
+        font-size: 0.8em;
+        border-radius: 5px;
+
+        &[type="text"], &[type="email"] {
+            padding: 5px;
+        }
+
+        &[type="submit"] {
+            margin: 15px 0;
+            padding: 6px;
+            font-size: 1em;
+            color: $main-text-color;
+            background-color: rgba(74,72,190,1);
+            border-style: none ;
+            box-shadow: 0 0 12px 1px $shadow-color;
+            transition: all 0.3s ease-in-out;
+            
+            &:hover {
+                cursor: pointer;
+                background-color:  rgb(54, 116, 209);
+            }
+
+            &:active {
+                background-color:  rgb(135, 69, 221);
+            }
+        }
+    }
+}

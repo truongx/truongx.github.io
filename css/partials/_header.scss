@@ -217,6 +217,12 @@
         .social-icons {
             float: none;
             text-align: center;
+            padding-top: 15px;
+        }
+
+        .social-icons a {
+            width: 36px;
+            padding: 15px;
         }
     }
 }

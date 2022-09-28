@@ -9,6 +9,7 @@
 @import 'header';
 @import 'footer';
 @import 'subscribe';
+@import 'night';
 
 html,
 body,
@@ -28,12 +29,15 @@ html {
 
 body {
     background-color:#0d0e20;
-    background-image: url("/img/stardust.png");
-    background-attachment: fixed;
     font-family: $font-family;
     font-size: 1.8em;
     line-height: 1.5;
     color: $main-text-color;
+}
+
+.stardust {
+    background-image: url("/img/stardust.png");
+    background-attachment: fixed;
 }
 
 .content {
@@ -55,12 +59,17 @@ h2 {
 }
 
 /* main page */
+// .main {
+//     background-image: url("/img/rinjani.jpg");
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: right center;
+//     min-height: 100vh;
+// }
 .main {
-    background-image: url("/img/rinjani.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: right center;
-    min-height: 100vh;
+    position: absolute;
+    height: 100vh;
+    width:100vw
 }
 
 /* blog */

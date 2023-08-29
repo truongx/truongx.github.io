@@ -7,10 +7,11 @@ name: truongx.com
 baseurl: ""
 url: "https://truongx.com"
 email: yo@truongx.com
-twitter_username: 0xtruong
+x_username: 0xtruong
 github_username:  truongx
 instagram_username: truongx
 linkedin_username: krzysztoftruong
+calcom_username: truongx
 
 markdown: kramdown
 kramdown:

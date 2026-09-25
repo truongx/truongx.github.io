@@ -1,0 +1,47 @@
+/* Canvas night sky, see js/night-sky.js */
+.night-sky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    // shown until the canvases are drawn, and without JavaScript
+    background: linear-gradient(to bottom, #020309 0%, #060818 36%, #0d0f27 64%, #1c1b3c 80%);
+
+    canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .night-sky-land {
+        opacity: 0;
+        transition: opacity 1.2s ease-out;
+    }
+
+    &.is-ready .night-sky-land {
+        opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .night-sky-land {
+            transition: none;
+        }
+    }
+
+    // film grain that hides banding in the dark gradients
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: var(--night-sky-grain, none);
+        background-size: var(--night-sky-grain-size, 128px);
+        pointer-events: none;
+    }
+}
